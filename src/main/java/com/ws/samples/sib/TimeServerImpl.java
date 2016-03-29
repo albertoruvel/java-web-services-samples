@@ -14,7 +14,7 @@ import com.ws.samples.sei.TimeServer;
  */
 
 @WebService(endpointInterface = "com.ws.samples.sei.TimeServer")
-public class TimeServerImpl implements TimeServer{
+public class TimeServerImpl{
 
 
 	public String getTimeAsString() {
