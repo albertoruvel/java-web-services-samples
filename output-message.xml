@@ -1,0 +1,12 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<S:Header>
+		<uuid xmlns="http://ch03.fib" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" SOAP-ENV:actor="http://schemas.xmlsoap.org/soap/actor/next">
+			dec781a9-a366-4ca4-9642-73c1e035c3a8
+		</uuid>
+	</S:Header>
+	<S:Body>
+		<ns2:countRabbits xmlns:ns2="http://ch03.fib">
+			<arg0>-100</arg0>
+		</ns2:countRabbits>
+	</S:Body>
+</S:Envelope>
