@@ -8,6 +8,7 @@ package com.ws.samples.handler;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -48,7 +49,8 @@ public class UUIDHandler implements SOAPHandler<SOAPMessageContext>{
         //manipulate the SOAP only if the request is outbound 
         if(request){
             //generates a UUID and a timestamp to inject to the headers 
-            UUID uuid = UUID.randomUUID(); 
+            UUID uuid = new UUID(new Random().nextLong(),  //lower 64 bits
+                                 new Random().nextLong());//upper 64bits 
             SOAPMessage message = null; 
             SOAPEnvelope env = null; 
             SOAPHeader header = null; 
@@ -61,6 +63,7 @@ public class UUIDHandler implements SOAPHandler<SOAPMessageContext>{
                 QName qname = new QName("http://ch03.fib", "uuid"); 
                 SOAPHeaderElement element = header.addHeaderElement(qname); 
                 element.setActor(SOAPConstants.URI_SOAP_ACTOR_NEXT); //this is default 
+                element.setMustUnderstand(true); //SOAP 1.2
                 element.addTextNode(uuid.toString()); 
                 message.saveChanges();
                 message.writeTo(System.out); 

@@ -9,8 +9,10 @@ import com.ws.samples.exception.FibException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import javax.jws.HandlerChain;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import javax.xml.ws.BindingType;
 
 /**
  *
@@ -20,6 +22,8 @@ import javax.jws.soap.SOAPBinding;
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.WRAPPED, 
              style = SOAPBinding.Style.DOCUMENT,
              use = SOAPBinding.Use.LITERAL)
+@HandlerChain(file = "handler-chain.xml")
+@BindingType(value = "http://java.sun.com/xml/ns/jaxws/2003/05/soap/bindings/HTTP/") //added to support SOAP 1.2
 public class RabbitCounter {
     private Map<Integer, Integer> caches = Collections.synchronizedMap(new HashMap<Integer, Integer>()); 
     

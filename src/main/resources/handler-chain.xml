@@ -6,10 +6,10 @@
         
         <javaee:handler>
             <javaee:handler-class>com.ws.samples.handler.UUIDHandler</javaee:handler-class>
-            <javaee:handler-name>UUIDHandler</javaee:handler-name>
-            <javaee:description>Description of the handler goes here</javaee:description>
-            <javaee:display-name>Display name of my handler</javaee:display-name>
-            
+        </javaee:handler>
+        
+        <javaee:handler>
+            <javaee:handler-class>com.ws.samples.handler.ArgHandler</javaee:handler-class>
         </javaee:handler>
     </javaee:handler-chain>
 </javaee:handler-chains>

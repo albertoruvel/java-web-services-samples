@@ -1,12 +1,1 @@
-<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
-	<S:Header>
-		<uuid xmlns="http://ch03.fib" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" SOAP-ENV:actor="http://schemas.xmlsoap.org/soap/actor/next">
-			dec781a9-a366-4ca4-9642-73c1e035c3a8
-		</uuid>
-	</S:Header>
-	<S:Body>
-		<ns2:countRabbits xmlns:ns2="http://ch03.fib">
-			<arg0>-100</arg0>
-		</ns2:countRabbits>
-	</S:Body>
-</S:Envelope>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Header><uuid xmlns="http://ch03.fib" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" SOAP-ENV:actor="http://schemas.xmlsoap.org/soap/actor/next" SOAP-ENV:mustUnderstand="1">1bf01d79-1605-b849-5f78-21ceb8704764</uuid></S:Header><S:Body><ns2:echoResponse xmlns:ns2="http://sib.samples.ws.com/"><return>Echoeing user message: Have a nice day :)</return></ns2:echoResponse></S:Body></S:Envelope>
