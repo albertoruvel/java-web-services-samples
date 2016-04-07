@@ -1,0 +1,25 @@
+<java version="1.6.0_06" class="java.beans.XMLDecoder">
+    <object class="java.util.ArrayList">
+        <void method="add">
+            <object class="com.ws.samples.model.Team">
+                <void property="name">
+                    <string>BurnsAndAllen</string>
+                </void>
+                <void property="players">
+                    <object class="java.util.ArrayList">
+                        <void method="add">
+                            <object class="com.ws.samples.model.Player">
+                                <void property="name">
+                                    <string>George Burns</string>
+                                </void>
+                                <void property="nickname">
+                                    <string>George</string>
+                                </void>
+                            </object>
+                        </void>
+					</object>
+				</void>
+			</object>
+		</void>
+	</object>
+</java>

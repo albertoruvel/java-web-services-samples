@@ -6,6 +6,7 @@
 package com.ws.samples.publish;
 
 import com.ws.samples.sib.Teams;
+import com.ws.samples.sib.rest.RestfulTeams;
 import javax.xml.ws.Endpoint;
 
 /**
@@ -14,6 +15,7 @@ import javax.xml.ws.Endpoint;
  */
 public class TeamsPublisher {
     public static void main(String[] args) {
-        Endpoint.publish("http://localhost:8080/teams", new Teams());
+        //Endpoint.publish("http://localhost:8080/teams", new Teams()); // SOAP VERSION 
+        Endpoint.publish("http://localhost:8080/teams", new RestfulTeams());
     }
 }
