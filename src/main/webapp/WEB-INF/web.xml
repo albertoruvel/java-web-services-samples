@@ -4,4 +4,12 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+      <servlet-name>RabbitCountServlet</servlet-name>
+      <servlet-class>com.ws.samples.servlet.RabbitCounterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>RabbitCountServlet</servlet-name>
+      <url-pattern>/rabbitCounter</url-pattern>
+  </servlet-mapping>
 </web-app>
