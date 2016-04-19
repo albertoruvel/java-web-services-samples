@@ -5,6 +5,7 @@
  */
 package com.ws.samples.publish.https;
 
+import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -34,6 +35,7 @@ import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLEngine;
 import javax.net.ssl.TrustManagerFactory;
+import javax.xml.ws.BindingProvider;
 import javax.xml.ws.http.HTTPException;
 
 /**
@@ -121,6 +123,7 @@ public class HttpsRabbitCounterPublisher {
         private MyHttpHandler(HttpsRabbitCounterPublisher pub){ this.pub = pub; }
         
         public void handle(HttpExchange he) throws IOException {
+            authenticate(he); 
             String verb = he.getRequestMethod().toUpperCase(); 
             if(verb.equals("GET"))doGet(he); 
             else if(verb.equals("POST"))doPost(he);
@@ -201,6 +204,19 @@ public class HttpsRabbitCounterPublisher {
             }
             fibs.put(n, fib);
             return fib;
+        }
+
+        private void authenticate(HttpExchange he) {
+            //extract header entries 
+            Headers headers = he.getRequestHeaders(); 
+            List<String> ulist = headers.get(BindingProvider.USERNAME_PROPERTY); 
+            List<String> plist = headers.get(BindingProvider.PASSWORD_PROPERTY); 
+            
+            //extract username/password from the two singleton lists
+            String username = ulist.get(0); 
+            String password = plist.get(0);
+            if(!username.equals("alberto") || !password.equals("rubalcaba"))
+                throw new HTTPException(401);
         }
         
     }

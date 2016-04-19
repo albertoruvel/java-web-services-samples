@@ -19,7 +19,7 @@ import javax.xml.ws.handler.MessageContext;
  * @author jose.rubalcaba
  */
 @WebService
-@HandlerChain(file="handler-chain.xml")
+//@HandlerChain(file="handler-chain.xml")
 public class Echo {
     
     //enable CDI on the service class 
@@ -28,9 +28,6 @@ public class Echo {
     
     @WebMethod
     public String echo(String fromClient){
-        MessageContext msgCxt = webServiceContext.getMessageContext(); 
-        Map headers = (Map)msgCxt.get(MessageContext.HTTP_REQUEST_HEADERS);
-        MapDump.mapDump((Map)msgCxt, ""); 
         String response = "Echoeing user message: " + fromClient; 
         return response; 
     }

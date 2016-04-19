@@ -4,12 +4,49 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!-- Servlet listener to deploy  web services to a servlet container -->
+  <!--<listener>
+      <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+  </listener>-->
   <servlet>
       <servlet-name>RabbitCountServlet</servlet-name>
       <servlet-class>com.ws.samples.servlet.RabbitCounterServlet</servlet-class>
   </servlet>
+  
+  <!-- Servlet to deploy a web service to a servlet container -->
+  <!--<servlet>
+      <servlet-name>TempConvertWS</servlet-name>
+      <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+  </servlet>-->
   <servlet-mapping>
       <servlet-name>RabbitCountServlet</servlet-name>
       <url-pattern>/rabbitCounter</url-pattern>
   </servlet-mapping>
+  <!--<servlet-mapping>
+      <servlet-name>TempConvertWS</servlet-name>
+      <url-pattern>/tc</url-pattern>
+  </servlet-mapping>-->
+  
+  <security-role>
+      <description>The only secure role</description>
+      <role-name>bigshot</role-name>
+  </security-role>
+  
+  <security-constraint>
+      <web-resource-collection>
+          <web-resource-name>Users-Roles Security</web-resource-name>
+          <url-pattern>/tcauth</url-pattern>
+      </web-resource-collection>
+      <auth-constraint>
+          <role-name>bigshot</role-name>
+      </auth-constraint>
+      <user-data-constraint>
+          <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+      </user-data-constraint>
+  </security-constraint>
+  
+  <login-config>
+      <!--<auth-method>BASIC</auth-method>-->
+      <auth-method>DIGEST</auth-method>
+  </login-config>
 </web-app>

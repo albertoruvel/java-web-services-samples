@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+    <endpoint
+        name="TempConvertWS"
+        implementation="com.ws.samples.sib.TempServerImpl"
+        url-pattern="/tc"/>
+</endpoints>
